@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Feeling</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+      color: #fff;
+      padding: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: url('https://imgur.com/ZvJjfYn.jpg') left center no-repeat, url('https://imgur.com/yQfcbcs.jpg') right center no-repeat;
+      background-size: 50% 150%;
+      background-attachment: fixed;
+      filter: brightness(0.5);
+      z-index: -2;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      border-radius: 16px 16px 0 0;
+      box-shadow: 0 -8px 30px rgba(0,0,0,0.3);
+      max-width: 500px;
+      width: 100%;
+      z-index: 1;
+      animation: fadeInUp 1.5s ease forwards;
+      color: #333;
+    }
+    h1 {
+      font-size: 1.6rem;
+      color: #d63384;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+      animation-delay: 0.5s;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+    p:nth-of-type(1) { animation-delay: 1s; }
+    p:nth-of-type(2) { animation-delay: 1.4s; }
+    p:nth-of-type(3) { animation-delay: 1.8s; }
+    p:nth-of-type(4) { animation-delay: 2.2s; }
+    p:nth-of-type(5) { animation-delay: 2.6s; }
+    p:nth-of-type(6) { animation-delay: 3s; }
+    p:nth-of-type(7) { animation-delay: 3.4s; }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .hearts {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Love_Heart_SVG.svg/1024px-Love_Heart_SVG.svg.png') no-repeat center;
+      background-size: contain;
+      animation: fall 6s linear forwards;
+      opacity: 0.8;
+    }
+    @keyframes fall {
+      0% {
+        transform: translateY(-10vh) scale(0.8);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(110vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="hearts"></div>
+  <div class="card">
+    <h1>Naii Ada hal yang ga berani aku sampein</h1>
+    <p>Aku liat kamu ngerasa excited sendirian, dan aku jadi mikir mungkin karena aku, mungkin kamu ngerasa aku gak pernah nunjukin rasa excited itu ya</p>
+    <p>Padahal jujur aku juga excited bangettt, tapi aku kadang takut nunjukinnya</p>
+    <p>Bukan karena gak sayang, tapi karena takut salah tempat, takut kalau aku terlalu berharap, terus ternyata bukan aku yang kamu tungguin</p>
+    <p>Aku pengen kamu tahu satu hal, aku seneng banget bisa deket sama kamu. dan kalau aku keliatan biasa aja, sebenernya aku lagi berusaha keras buat gak nyakitin kamu dengan caraku sendiri.</p>
+    <p>Aku takut nunjukin nya. takut salah paham. takut kalo aku berharap lebih dari yang seharusnya, aku sebenernya kadang cemburuan sama kamu, ketika kamu ngirim pap aku selalu pengen post tapi selalu mikir 'boleh ga ya?'</p> 
+    <p>Aku suka kangen sama kamu, aku selalu nungguin pesan kamu, aku juga gamau ngebuat kamu ngerasa excited sendirian</p>
+    <p>Kalau kamu pengen tahu, aku juga seneng. cuman kadang aku gak tau caranya nunjukin tanpa bikin kamu ilfeel</p>
+    <p style="margin-top: 30px; font-weight: bold; color: #d63384;">— yang diem-diem seneng banget karena kamu</p>
+  </div>
+  <audio autoplay loop>
+    <source src="https://raw.githubusercontent.com/jabirfirdaus/buatnaii/main/SSStik.net_wanitaku_.mp3" type="audio/mp3">
+  </audio>
+  <script>
+    const heartsContainer = document.querySelector(".hearts");
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * window.innerWidth + 'px';
+      heart.style.animationDuration = 4 + Math.random() * 3 + 's';
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }, 300);
+  </script>
+</body>
+</html>
