@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Feeling</title>
+  <title>Jujur dari Aku</title>
   <style>
     body {
       margin: 0;
@@ -13,11 +13,12 @@
       display: flex;
       align-items: flex-end;
       justify-content: center;
-      height: 100vh;
+      min-height: 100vh;
       text-align: center;
       color: #fff;
       padding: 20px;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
       position: relative;
     }
     body::before {
@@ -28,7 +29,9 @@
       width: 100vw;
       height: 100vh;
       background: url('https://imgur.com/ZvJjfYn.jpg') left center no-repeat, url('https://imgur.com/yQfcbcs.jpg') right center no-repeat;
-      background-size: 50% 150%;
+      background-size: 50% 160%;
+      background-repeat: no-repeat;
+      background-position: left center, right center;
       background-attachment: fixed;
       filter: brightness(0.5);
       z-index: -2;
@@ -45,7 +48,7 @@
       color: #333;
     }
     h1 {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       color: #d63384;
       margin-bottom: 20px;
       opacity: 0;
@@ -109,6 +112,24 @@
     audio {
       display: none;
     }
+
+    @media (max-width: 768px) {
+      body::before {
+        background-size: cover;
+        background-position: center;
+      background: url('https://imgur.com/ZvJjfYn.jpg') left center no-repeat;
+      }
+      .card {
+        border-radius: 12px 12px 0 0;
+        padding: 15px;
+      }
+      h1 {
+        font-size: 1.3rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -127,6 +148,7 @@
 <audio autoplay loop>
   <source src="https://dl.dropboxusercontent.com/scl/fi/w7io9m1jk80eoxbi2l6ju/SSStik.net_wanitaku.mp3?rlkey=hfujlighgu3sigidt7dgwir73&st=86jdvctc" type="audio/mp3">
 </audio>
+
   <script>
     const heartsContainer = document.querySelector(".hearts");
     setInterval(() => {
